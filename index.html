@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сим Центр</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <menu>
+        <div class="logo">
+            <img class="logoImg" src="icons/logo.svg" alt="logo"/>
+            <div class="logoText">Сим Центр</div>
+        </div>
+        <div class="tabs">
+            <div class="tab">
+                <img class="tabIcon" src="icons/calendar.svg" alt="menuIcon"/>
+                <div class="tabText">Расписание</div>
+            </div>
+            <div class="tab">
+                <img class="tabIcon" src="icons/GraduationCap.svg" alt="menuIcon"/>
+                <div class="tabText">Учебные сессии</div>
+            </div>
+            <div class="tab">
+                <img class="tabIcon" src="icons/Student.svg" alt="menuIcon"/>
+                <div class="tabText">Список комнат</div>
+            </div>
+            <div class="tab">
+                <img class="tabIcon" src="icons/UserList.svg" alt="menuIcon"/>
+                <div class="tabText">Пользователи</div>
+            </div>
+            <div class="tab">
+                <img class="tabIcon" src="icons/camera.svg" alt="menuIcon"/>
+                <div class="tabText">Учебные группы</div>
+            </div>
+            <div class="tab">
+                <img class="tabIcon" src="icons/settings.svg" alt="menuIcon"/>
+                <div class="tabText">Список устройств</div>
+            </div>
+            <div class="tab">
+                <img class="tabIcon" src="icons/download.svg" alt="menuIcon"/>
+                <div class="tabText">Настройки системы</div>
+            </div>
+            <div class="tab">
+                <img class="tabIcon" src="icons/calendar.svg" alt="menuIcon"/>
+                <div class="tabText">Архив</div>
+            </div>
+        </div>
+
+        <div class="user">
+            <div class="userInfo">
+                <div class="userName">Барнаби Мармадюк</div>
+                <div class="userStatus">Преподаватель</div>
+            </div>
+            <div class="userAvatar">БМ</div>
+        </div>
+        <div class="exit">
+            <img src="icons/log-out.svg" alt="logout"/>
+            <div class="exitText">Выйти</div>
+        </div>
+
+        <div class="language">
+            <img class="flag" src="icons/russia.svg" alt="Russia">
+            <select class="languageSelect">
+                <option>Русский</option>
+            </select>
+        </div>
+
+        <div class="version">
+            Версия 1.02
+        </div>
+    </menu>
+    <div class="main">
+        <header>
+            <div>Учебные сессий</div>
+            <div class="icon-bar">
+                <div class="search-wrapper">
+                    <img src="icons/search.svg" alt="Поиск" class="search-icon">
+                    <input type="text" placeholder="Поиск" class="search-input">
+                </div>
+                <img src="icons/hopper.svg" alt="Filter" class="icon">
+                <img src="icons/3lines.svg" alt="Menu" class="icon">
+                <button class="submit-btn">Создать</button>
+            </div>
+        </header>
+
+        <table>
+            <thead>
+            <tr>
+                <th>
+                    <span class="th-flex">
+                        Дата и время
+                        <img src="icons/down-arrow.svg" alt="Сортировка" class="th-icon">
+                    </span>
+                </th>
+                <th>Статус</th>
+                <th>Название учебного модуля</th>
+                <th>Тип сессии</th>
+                <th>Комната</th>
+                <th>Группа</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>01.09.2025 10:00</td>
+                <td><span class="status planned">Запланировано</span></td>
+                <td>Математика</td>
+                <td>Лекция</td>
+                <td>101</td>
+                <td>Группа A</td>
+            </tr>
+            <tr>
+                <td>02.09.2025 14:00</td>
+                <td><span class="status progress">Идет</span></td>
+                <td>Физика</td>
+                <td>Семинар</td>
+                <td>202</td>
+                <td>Группа B</td>
+            </tr>
+            <tr>
+                <td>05.09.2025 09:00</td>
+                <td><span class="status done">Завершено</span></td>
+                <td>Химия</td>
+                <td>Практика</td>
+                <td>303</td>
+                <td>Группа C</td>
+            </tr>
+
+
+            </tbody>
+
+            <!-- ПАГИНАЦИЯ -->
+            <tfoot>
+            <tr>
+                <td colspan="6">
+                    <div class="pagination">
+                        <button class="page-btn prev">
+                            <img src="icons/arrowLeft.svg" alt="Назад">
+                        </button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <button class="page-btn">5</button>
+                        <button class="page-btn">...</button>
+                        <button class="page-btn">25</button>
+                        <button class="page-btn next">
+                            <img src="icons/arrowRight.svg" alt="Вперед">
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+
+        </table>
+    </div>
+
+
+
+
+</body>
+</html>
