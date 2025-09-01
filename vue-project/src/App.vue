@@ -9,6 +9,13 @@ const itemsPerPage = ref(11)
 const sortDirection = ref('asc')
 const sortBy = ref('start')
 
+// Состояние сворачивания бокового меню
+const isMenuCollapsed = ref(false)
+
+const toggleMenu = () => {
+  isMenuCollapsed.value = !isMenuCollapsed.value
+}
+
 
 const loadData = async () => {
   try {
@@ -164,7 +171,7 @@ onMounted(() => {
 
 <template>
   <div id="app">
-    <menu>
+    <menu :class="{ collapsed: isMenuCollapsed }">
       <div class="logo">
         <img class="logoImg" src="/icons/logo.svg" alt="logo"/>
         <div class="logoText">Сим Центр</div>
@@ -227,7 +234,11 @@ onMounted(() => {
         Версия 1.02
       </div>
     </menu>
-    <div class="main">
+    <button class="menu-toggle" @click="toggleMenu" :class="{ collapsed: isMenuCollapsed }">
+      <img src="/icons/arrowLeft.svg" alt="Свернуть меню" />
+    </button>
+
+    <div class="main" :class="{ collapsed: isMenuCollapsed }">
       <header>
         <div>Учебные сессии</div>
         <div class="icon-bar">
@@ -386,7 +397,37 @@ menu {
     position: fixed;
     left: 0;
     top: 0;
-    overflow-y: hidden;
+    overflow: hidden;
+}
+
+/* Кнопка сворачивания меню */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 274px;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #2F3144;
+    border: none;
+    box-shadow: 0 4px 6px #0000001F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-toggle img {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+    filter: brightness(0) invert(1);
+}
+
+.menu-toggle.collapsed img {
+    transform: rotate(180deg);
 }
 
 * {
@@ -399,6 +440,7 @@ body {
     font-family: "Manrope", sans-serif;
     background: #F4F4F8;
     color: #2F3144;
+    overflow-x: hidden;
 }
 
 .logo {
@@ -619,6 +661,58 @@ body {
     padding: 24px;
     background: #f8f9fb;
     height: 100vh;
+}
+
+/* Свернутое состояние меню */
+menu.collapsed {
+    width: 72px;
+}
+
+menu.collapsed .logoText,
+menu.collapsed .tabText,
+menu.collapsed .exitText,
+menu.collapsed .userInfo,
+menu.collapsed .language,
+menu.collapsed .version {
+    display: none;
+}
+
+menu.collapsed .logo {
+    padding: 19px 12px;
+    justify-content: center;
+}
+
+menu.collapsed .logoImg {
+    margin-right: 0;
+}
+
+menu.collapsed .tabs {
+    align-items: center;
+}
+
+menu.collapsed .tabIcon {
+    margin-right: 0;
+}
+
+menu.collapsed .user {
+    justify-content: center;
+}
+
+menu.collapsed .exit {
+    justify-content: center;
+}
+
+menu.collapsed .exit img {
+    margin-right: 0;
+}
+
+.main.collapsed {
+    margin: 8px 8px 8px 90px;
+}
+
+/* Позиционирование кнопки относительно состояния меню */
+.menu-toggle.collapsed {
+    left: 72px;
 }
 
 header {
